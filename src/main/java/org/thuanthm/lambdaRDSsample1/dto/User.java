@@ -1,24 +1,24 @@
 package org.thuanthm.lambdaRDSsample1.dto;
 
-public class Account {
-    private Long user_id;
+public class User {
+    private Long id;
     private String username;
     private String email;
 
-    public Account() {
+    public User() {
     }
 
-    public Account(String username, String email) {
+    public User(String username, String email) {
         this.username = username;
         this.email = email;
     }
 
-    public Long getUser_id() {
-        return user_id;
+    public Long getId() {
+        return id;
     }
 
-    public void setUser_id(Long user_id) {
-        this.user_id = user_id;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getUsername() {
