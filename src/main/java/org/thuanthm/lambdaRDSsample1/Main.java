@@ -6,10 +6,10 @@ import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 @ComponentScan(basePackages = {"org.thuanthm.*"})
-public class lambdaRDSsample1Application {
+public class Main {
 
 	public static void main(String[] args) {
-		SpringApplication.run(lambdaRDSsample1Application.class, args);
+		SpringApplication.run(Main.class, args);
 	}
 
 }
