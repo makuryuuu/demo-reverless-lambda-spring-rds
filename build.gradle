@@ -3,7 +3,13 @@ plugins {
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
     id 'java'
 }
-
+task buildZip(type: Zip) {
+    from compileJava
+    from processResources
+    into('lib') {
+        from configurations.runtimeClasspath
+    }
+}
 group 'org.thuanthm'
 version '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
@@ -22,27 +28,24 @@ dependencies {
     // https://mvnrepository.com/artifact/org.apache.commons/commons-lang3
     implementation 'org.apache.commons:commons-lang3:3.12.0'
     // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter
-    implementation 'org.springframework.boot:spring-boot-starter:2.6.2'
-    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter
-    implementation 'org.springframework.boot:spring-boot-starter-web:2.6.2'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
     // https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-function-adapter-aws
     implementation 'org.springframework.cloud:spring-cloud-function-adapter-aws:3.2.1'
-    // https://mvnrepository.com/artifact/software.amazon.rdsdata/rds-data-api-client-library-java
-    implementation 'software.amazon.rdsdata:rds-data-api-client-library-java:1.0.8'
-
+    // https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-function-web
+    implementation 'org.springframework.cloud:spring-cloud-function-web:3.2.1'
     // https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-rdsdata
-    implementation 'com.amazonaws:aws-java-sdk-rdsdata:1.12.141'
+    implementation 'com.amazonaws:aws-java-sdk-rdsdata:1.12.131'
     // https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-core
-    implementation 'com.amazonaws:aws-java-sdk-core:1.12.141'
+    implementation 'com.amazonaws:aws-java-sdk-core:1.12.131'
     // https://mvnrepository.com/artifact/com.amazonaws/aws-lambda-java-core
-    implementation 'com.amazonaws:aws-lambda-java-core:1.12.141'
+    implementation 'com.amazonaws:aws-lambda-java-core:1.2.1'
     // https://mvnrepository.com/artifact/com.amazonaws/aws-lambda-java-events
     implementation 'com.amazonaws:aws-lambda-java-events:3.11.0'
+    // https://mvnrepository.com/artifact/org.json/json
+    implementation 'org.json:json:20211205'
 
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
-
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
 }
 
 test {
